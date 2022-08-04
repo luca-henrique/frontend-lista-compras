@@ -10,6 +10,7 @@ const ContentTitle = () => {
     <CustomCard
       containerClass='list-container'
       footer={<ContentItemCardFooter />}
+      link='create-list'
     >
       <div>
         <p className='title'>Mês</p>

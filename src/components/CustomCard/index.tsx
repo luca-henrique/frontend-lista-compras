@@ -1,0 +1,30 @@
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Divider,
+} from '@material-ui/core';
+
+type CustomCardProsp = {
+  containerClass: string;
+  children: React.ReactNode;
+  footer?: React.ReactElement;
+};
+
+const CustomCard = ({containerClass, children, footer}: CustomCardProsp) => {
+  console.log(footer);
+  return (
+    <div className={containerClass}>
+      <Card className='card'>
+        <CardActionArea className='card-action-area'>
+          <CardContent className='card-content'>{children}</CardContent>
+        </CardActionArea>
+
+        {footer && footer()}
+      </Card>
+    </div>
+  );
+};
+
+export default CustomCard;

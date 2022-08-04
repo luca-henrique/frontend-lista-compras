@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  Divider,
-} from '@material-ui/core';
+import {Card, CardActionArea, CardContent} from '@material-ui/core';
 
 type CustomCardProsp = {
   containerClass: string;
@@ -21,7 +15,7 @@ const CustomCard = ({containerClass, children, footer}: CustomCardProsp) => {
           <CardContent className='card-content'>{children}</CardContent>
         </CardActionArea>
 
-        {footer && footer()}
+        {footer && footer}
       </Card>
     </div>
   );

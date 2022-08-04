@@ -1,36 +1,21 @@
 import CustomCard from '../CustomCard';
 
-import {CardActions, Divider} from '@material-ui/core';
-
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faShoppingBasket, faCheck} from '@fortawesome/free-solid-svg-icons';
 
-const ContentTitle = () => {
-  const footer = () => {
-    return (
-      <>
-        <Divider />
-        <CardActions className='card-footer'>
-          <p>01/01/2022</p>
-          <p>100.00</p>
-        </CardActions>
-      </>
-    );
-  };
+import ContentItemCardFooter from './Footer';
+import ListItem from './ListItem';
 
+const ContentTitle = () => {
   return (
-    <CustomCard containerClass='list-container' footer={footer}>
+    <CustomCard
+      containerClass='list-container'
+      footer={<ContentItemCardFooter />}
+    >
       <div>
         <p className='title'>Mês</p>
         <div className='list-card-body'>
-          <div className='list-card-item'>
-            <FontAwesomeIcon icon={faShoppingBasket} size='sm' />
-            <p>Item(s) restante</p>
-          </div>
-          <div className='list-card-item'>
-            <FontAwesomeIcon icon={faCheck} size='sm' />
-            <p>Item(s) comprados</p>
-          </div>
+          <ListItem icon={faShoppingBasket} description='1 Item(s) restante' />
+          <ListItem icon={faCheck} description='2 Item(s) comprados' />
         </div>
       </div>
     </CustomCard>

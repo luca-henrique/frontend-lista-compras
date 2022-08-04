@@ -7,7 +7,6 @@ type CustomCardProsp = {
 };
 
 const CustomCard = ({containerClass, children, footer}: CustomCardProsp) => {
-  console.log(footer);
   return (
     <div className={containerClass}>
       <Card className='card'>

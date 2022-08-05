@@ -1,12 +1,14 @@
 import TextField from '@material-ui/core/TextField';
-import {InputAdornment, MenuItem} from '@material-ui/core';
+import {InputAdornment, MenuItem, Button} from '@material-ui/core';
 
 const units = ['kg', 'lt', 'un'];
+
+import './style.css';
+import CustomCard from '../../components/CustomCard';
 
 const CreateList = () => {
   return (
     <div className='page-container'>
-      Create List
       <form className='form-container'>
         <TextField
           label='Lista'
@@ -16,7 +18,7 @@ const CreateList = () => {
           required
         />
         <TextField
-          label='Producto'
+          label='Produto'
           name='product'
           value={''}
           onChange={() => {}}
@@ -55,6 +57,9 @@ const CreateList = () => {
             ),
           }}
         />
+        <Button variant='outlined' color='secondary'>
+          Adicionar
+        </Button>
       </form>
     </div>
   );

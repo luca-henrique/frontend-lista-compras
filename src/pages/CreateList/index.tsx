@@ -1,66 +1,29 @@
-import TextField from '@material-ui/core/TextField';
-import {InputAdornment, MenuItem, Button} from '@material-ui/core';
-
-const units = ['kg', 'lt', 'un'];
-
 import './style.css';
+import FormList from './Form';
 import CustomCard from '../../components/CustomCard';
+import {Checkbox, Typography} from '@material-ui/core';
 
 const CreateList = () => {
   return (
     <div className='page-container'>
-      <form className='form-container'>
-        <TextField
-          label='Lista'
-          name='list'
-          value={''}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          label='Produto'
-          name='product'
-          value={''}
-          onChange={() => {}}
-          required
-        />
+      <FormList />
 
-        <TextField
-          label='Quantidade'
-          name='quantity'
-          value={''}
-          onChange={() => {}}
-          required
-          select
-        >
-          {units.map((option) => {
-            return <MenuItem key={option}>{option}</MenuItem>;
-          })}
-        </TextField>
-
-        <TextField
-          label='Unidade'
-          name='unity'
-          value={''}
-          onChange={() => {}}
-          required
-        />
-
-        <TextField
-          label='Preço'
-          name='price'
-          value={''}
-          onChange={() => {}}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position='start'>R$</InputAdornment>
-            ),
-          }}
-        />
-        <Button variant='outlined' color='secondary'>
-          Adicionar
-        </Button>
-      </form>
+      <div className='list-items-container'>
+        <CustomCard containerClass='list-item' link='#'>
+          <div>
+            <div className='list-item-header'>
+              <Typography variant='subtitle1' component='h2'>
+                Café
+              </Typography>
+              <Checkbox />
+            </div>
+            <div>
+              <Typography>1 unidade</Typography>
+              <Typography>R$ 10.00</Typography>
+            </div>
+          </div>
+        </CustomCard>
+      </div>
     </div>
   );
 };

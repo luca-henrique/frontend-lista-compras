@@ -4,10 +4,45 @@
   padding: 20px;
   border-radius: 12px;
   flex-direction: column;
-  width: 400px;
+  width: 800px;
 }
 
 .form-container > div {
   min-width: 200px;
   margin: 10px 0px;
+}
+
+.list-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.list-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.list-item {
+  max-width: 220px;
+  min-width: 220px;
+  margin: 10px;
+}
+
+.list-card-footer {
+  max-width: 220px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bold;
+  color: #757575;
+}
+
+.list-card-footer-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
 }

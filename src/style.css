@@ -17,3 +17,7 @@ a:hover {
   text-decoration: none;
   color: inherit;
 }
+
+.card-img {
+  object-fit: cover;
+}

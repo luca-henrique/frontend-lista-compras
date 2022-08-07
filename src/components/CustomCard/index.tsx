@@ -1,4 +1,4 @@
-import {Card, CardActionArea, CardContent} from '@material-ui/core';
+import {Card, CardActionArea, CardContent, CardMedia} from '@material-ui/core';
 
 import {Link} from 'react-router-dom';
 
@@ -7,6 +7,7 @@ type CustomCardProsp = {
   children: React.ReactNode;
   footer?: React.ReactElement;
   link?: string;
+  image?: string;
 } & React.RefAttributes<HTMLAnchorElement>;
 
 const CustomCard = ({
@@ -14,12 +15,22 @@ const CustomCard = ({
   children,
   footer,
   link,
+  image,
 }: CustomCardProsp) => {
   return (
     <div className={containerClass}>
-      <Link to={`/${link}`}>
+      <Link to={`${link}`}>
         <Card className='card'>
           <CardActionArea className='card-action-area'>
+            {image && (
+              <CardMedia
+                component='img'
+                className='card-img'
+                height='200px'
+                image={image}
+                title='image'
+              />
+            )}
             <CardContent className='card-content'>{children}</CardContent>
           </CardActionArea>
 

@@ -5,6 +5,10 @@ import {ThemeProvider} from '@material-ui/styles';
 import Header from './components/Header';
 import Router from './routers/router';
 
+import {Provider} from 'react-redux';
+
+import store from './store';
+
 import './style.css';
 
 const theme = createTheme({
@@ -20,12 +24,14 @@ const theme = createTheme({
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Router />
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Header />
+          <Router />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

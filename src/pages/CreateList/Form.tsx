@@ -4,13 +4,11 @@ import {
   Button,
   TextField,
   Select,
-  InputLabel,
-  FormControl,
 } from '@material-ui/core';
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-const units = ['kg', 'lt', 'un'];
+const units = ['Kilos', 'Litros', 'Unidades'];
 
 import {Creators as ListActions} from '../../store/actions/list';
 
@@ -29,7 +27,7 @@ const FormList = () => {
   const addProductList = (e) => {
     e.preventDefault();
 
-    if (!list || productName || quantity || unity || price || list) {
+    if (!list || !productName || !quantity || !unity || !price || !list) {
       setShowError(true);
     } else {
       const product = {
@@ -39,7 +37,6 @@ const FormList = () => {
         price,
       };
       dispatch(ListActions.addProductRequest(list, product));
-      setList('');
       setProductName('');
       setQuantity('');
       setUnity('');

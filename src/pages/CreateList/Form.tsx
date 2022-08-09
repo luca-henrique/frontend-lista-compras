@@ -22,20 +22,29 @@ const FormList = () => {
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
   const [unity, setUnity] = useState('');
+  const [showError, setShowError] = useState(false);
 
   const state = useSelector((state) => state);
 
   const addProductList = (e) => {
     e.preventDefault();
-    const product = {
-      productName,
-      quantity,
-      unity,
-      price,
-    };
-    dispatch(ListActions.addProductRequest(list, product));
 
-    console.log(state);
+    if (!list || productName || quantity || unity || price || list) {
+      setShowError(true);
+    } else {
+      const product = {
+        productName,
+        quantity,
+        unity,
+        price,
+      };
+      dispatch(ListActions.addProductRequest(list, product));
+      setList('');
+      setProductName('');
+      setQuantity('');
+      setUnity('');
+      setPrice('');
+    }
   };
 
   return (
@@ -47,6 +56,7 @@ const FormList = () => {
           value={list}
           onChange={(event) => setList(event.target.value)}
           required
+          error={showError && !list}
         />
         <Button variant='contained' color='secondary' type='submit'>
           Adicionar
@@ -66,6 +76,7 @@ const FormList = () => {
           value={productName}
           onChange={(event) => setProductName(event.target.value)}
           required
+          error={showError && !productName}
         />
 
         <Select
@@ -77,6 +88,7 @@ const FormList = () => {
           }}
           required
           style={{width: '160px'}}
+          error={showError && !unity}
         >
           <MenuItem value=''>
             <em>None</em>
@@ -97,6 +109,7 @@ const FormList = () => {
           onChange={(event) => setQuantity(event.target.value)}
           required
           fullWidth
+          error={showError || !quantity}
         />
 
         <TextField

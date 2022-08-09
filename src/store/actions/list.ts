@@ -3,11 +3,11 @@ export const Types = {
 };
 
 export const Creators = {
-  addProductRequest(product, list) {
+  addProductRequest(list, product) {
     return {
       type: Types.ADD_PRODUCT_REQUEST,
-      product,
       list,
+      product,
     };
   },
 };

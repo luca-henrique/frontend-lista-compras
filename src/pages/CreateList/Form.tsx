@@ -8,7 +8,7 @@ import {
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-const units = ['Kilos', 'Litros', 'Unidades'];
+const units = ['Quilos', 'Litros', 'Unidades'];
 
 import {v1 as uuidv1} from 'uuid';
 

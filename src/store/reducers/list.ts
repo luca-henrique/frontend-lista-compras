@@ -10,8 +10,12 @@ const INITIAL_STATE = {
 
 export default function list(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case Types.NEW_LIST_REQUEST:
+      return {...INITIAL_STATE, date: getDate()};
+
     case Types.ADD_PRODUCT_REQUEST:
       return {
+        ...state,
         list: action.list,
         items: [
           ...state.items,
@@ -66,6 +70,18 @@ export const getClosedItems = createSelector(
   (state) => state.list.items,
   (items) => items.filter((item) => item.checked).length,
 );
+
+function getDate() {
+  const date = new Date();
+
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  };
+
+  return date.toLocaleDateString('pt-BR', options);
+}
 
 function toggleItem(items, id) {
   const index = items.findIndex((item) => item.id === id);

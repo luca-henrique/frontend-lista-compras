@@ -3,6 +3,8 @@ export const Types = {
   DELETE_PRODUCT_REQUEST: 'list/DELETE_PRODUCT_REQUEST',
   UPDATE_PRODUCT_REQUEST: 'list/UPDATE_PRODUCT_REQUEST',
   TOGGLE_PRODUCT: 'list/TOGGLE_PRODUCT',
+
+  NEW_LIST_REQUEST: 'list/NEW_LIST_REQUEST',
 };
 
 export const Creators = {
@@ -30,5 +32,9 @@ export const Creators = {
     type: Types.UPDATE_PRODUCT_REQUEST,
     product,
     list,
+  }),
+
+  newList: () => ({
+    type: Types.NEW_LIST_REQUEST,
   }),
 };

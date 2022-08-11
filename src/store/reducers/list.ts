@@ -19,6 +19,13 @@ export default function list(state = INITIAL_STATE, action) {
         ],
       };
 
+    case Types.DELETE_PRODUCT_REQUEST: {
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.id),
+      };
+    }
+
     default:
       return state;
   }

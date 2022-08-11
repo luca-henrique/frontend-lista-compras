@@ -10,6 +10,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const units = ['Kilos', 'Litros', 'Unidades'];
 
+import {v1 as uuidv1} from 'uuid';
+
 import {Creators as ListActions} from '../../store/actions/list';
 
 const FormList = () => {
@@ -22,8 +24,6 @@ const FormList = () => {
   const [unity, setUnity] = useState('');
   const [showError, setShowError] = useState(false);
 
-  const state = useSelector((state) => state);
-
   const addProductList = (e) => {
     e.preventDefault();
 
@@ -31,6 +31,7 @@ const FormList = () => {
       setShowError(true);
     } else {
       const product = {
+        id: uuidv1(),
         productName,
         quantity,
         unity,

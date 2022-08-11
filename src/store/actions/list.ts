@@ -11,4 +11,11 @@ export const Creators = {
       product,
     };
   },
+
+  deleteProduct(id) {
+    return {
+      type: Types.DELETE_PRODUCT_REQUEST,
+      id,
+    };
+  },
 };

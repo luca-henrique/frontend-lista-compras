@@ -7,7 +7,7 @@ const ListItem = ({item}) => {
     <CustomCard
       containerClass='list-item'
       link='#'
-      footer={<ListItemFooter total={item.total} />}
+      footer={<ListItemFooter total={item.total} id={item.id} />}
       image='http://s2.glbimg.com/P6Nn4AXYPq-K1Xek4cCKyONYYyA=/e.glbimg.com/og/ed/f/original/2014/01/15/cafe.jpg'
     >
       <div>

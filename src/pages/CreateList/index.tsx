@@ -10,8 +10,8 @@ const CreateList = () => {
     <div className='page-container'>
       <FormList />
       <div className='list-items-container'>
-        {items.map((item, index) => {
-          return <ListItem key={index} item={item} />;
+        {items.map((item) => {
+          return <ListItem key={item.id} item={item} />;
         })}
       </div>
     </div>

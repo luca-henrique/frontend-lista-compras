@@ -1,10 +1,10 @@
 import {CardActions, Divider} from '@material-ui/core';
 import {useSelector} from 'react-redux';
 
-const ContentItemCardFooter = () => {
-  const listItems = useSelector((state) => state.list.items);
+import {getListTotal} from '../../store/reducers/list';
 
-  const total = listItems.reduce((total, item) => total + item.total, 0);
+const ContentItemCardFooter = () => {
+  const total = useSelector((state) => getListTotal(state));
 
   return (
     <>

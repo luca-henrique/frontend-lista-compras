@@ -106,7 +106,7 @@ const FormList = () => {
           onChange={(event) => setQuantity(event.target.value)}
           required
           fullWidth
-          error={showError || !quantity}
+          error={showError && !quantity}
         />
 
         <TextField

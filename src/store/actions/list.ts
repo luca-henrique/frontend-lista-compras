@@ -1,6 +1,7 @@
 export const Types = {
   ADD_PRODUCT_REQUEST: 'list/ADD_PRODUCT_REQUEST',
   DELETE_PRODUCT_REQUEST: 'list/DELETE_PRODUCT_REQUEST',
+  TOGGLE_PRODUCT: 'list/TOGGLE_PRODUCT',
 };
 
 export const Creators = {
@@ -18,4 +19,9 @@ export const Creators = {
       id,
     };
   },
+
+  toggleProduct: (id) => ({
+    type: Types.TOGGLE_PRODUCT,
+    id,
+  }),
 };

@@ -2,7 +2,12 @@ import CustomCard from '../CustomCard';
 import ListItemFooter from './ListItemFooter';
 import {Typography, Checkbox} from '@material-ui/core';
 
+import {Creators} from '../../store/actions/list';
+import {useDispatch} from 'react-redux';
+
 const ListItem = ({item}) => {
+  const dispatch = useDispatch();
+
   return (
     <CustomCard
       containerClass='list-item'
@@ -15,7 +20,10 @@ const ListItem = ({item}) => {
           <Typography variant='subtitle1' component='h2'>
             {item.productName}
           </Typography>
-          <Checkbox />
+          <Checkbox
+            checked={item.checked}
+            onClick={() => dispatch(Creators.toggleProduct(item.id))}
+          />
         </div>
         <div>
           <Typography>

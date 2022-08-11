@@ -26,10 +26,10 @@ const ListItem = ({item}) => {
           />
         </div>
         <div>
-          <Typography>
+          <Typography component='p'>
             {item.quantity} {item.unity}
           </Typography>
-          <Typography>R$ {item.price}</Typography>
+          <Typography component='p'>R$ {item.price}</Typography>
         </div>
       </div>
     </CustomCard>

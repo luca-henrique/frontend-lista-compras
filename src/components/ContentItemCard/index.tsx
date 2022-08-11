@@ -6,8 +6,22 @@ import ContentItemCardFooter from './Footer';
 import ListItem from './ListItem';
 import {useSelector} from 'react-redux';
 
+import {getOpenedItems, getClosedItems} from '../../store/reducers/list';
+import {useCallback, useEffect, useState} from 'react';
+
 const ContentTitle = () => {
   const title = useSelector((state) => state.list.list);
+
+  const state = useSelector((state) => state);
+
+  const [item, setItem] = useState({});
+
+  useEffect(() => {
+    setItem({
+      opened: getOpenedItems(state),
+      closed: getClosedItems(state),
+    });
+  }, [state]);
 
   return (
     <CustomCard
@@ -18,8 +32,14 @@ const ContentTitle = () => {
       <div>
         <p className='title'>{title}</p>
         <div className='list-card-body'>
-          <ListItem icon={faShoppingBasket} description='1 Item(s) restante' />
-          <ListItem icon={faCheck} description='2 Item(s) comprados' />
+          <ListItem
+            icon={faShoppingBasket}
+            description={` ${item.opened} Item(s) restante`}
+          />
+          <ListItem
+            icon={faCheck}
+            description={` ${item.closed} Item(s) restante`}
+          />
         </div>
       </div>
     </CustomCard>

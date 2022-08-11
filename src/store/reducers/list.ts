@@ -50,6 +50,16 @@ export const getListTotal = createSelector(
   (items) => items.reduce((total, item) => total + item.total, 0),
 );
 
+export const getOpenedItems = createSelector(
+  (state) => state.list.items,
+  (items) => items.filter((item) => !item.checked).length,
+);
+
+export const getClosedItems = createSelector(
+  (state) => state.list.items,
+  (items) => items.filter((item) => item.checked).length,
+);
+
 function toggleItem(items, id) {
   const index = items.findIndex((item) => item.id === id);
 

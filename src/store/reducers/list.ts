@@ -36,6 +36,13 @@ export default function list(state = INITIAL_STATE, action) {
         items: toggleItem(state.items, action.id),
       };
 
+    case Types.UPDATE_PRODUCT_REQUEST:
+      return {
+        ...state,
+        list: action.list,
+        items: updateProduct(state.items, action.product),
+      };
+
     default:
       return state;
   }
@@ -66,6 +73,16 @@ function toggleItem(items, id) {
   return [
     ...items.slice(0, index), // todos os items antes do item que vai ser modiciado
     {...items[index], checked: !items[index].checked}, // item que vai ser modificado
+    ...items.slice(index + 1), // todos os items depois do que foi modificiado
+  ];
+}
+
+function updateProduct(items, product) {
+  const index = items.findIndex((item) => item.id === product.id);
+
+  return [
+    ...items.slice(0, index), // todos os items antes do item que vai ser modiciado
+    {...product, total: getItemTotal(product)}, // item que vai ser modificado
     ...items.slice(index + 1), // todos os items depois do que foi modificiado
   ];
 }

@@ -50,13 +50,38 @@ const FormList = () => {
         unity,
         price,
       };
-      dispatch(ListActions.addProductRequest(list, product));
-      setProductName('');
-      setQuantity('');
-      setUnity('');
-      setPrice('');
+
+      if (action === 'update') {
+        updateProduct(list, product);
+      } else {
+        addProduct(list, product);
+      }
+
+      clearForm();
     }
   };
+
+  function clearForm() {
+    setProductName('');
+    setQuantity('');
+    setUnity('');
+    setPrice('');
+    setShowError(false);
+  }
+
+  function updateProduct(list, updateProduct) {
+    dispatch(
+      ListActions.updateProduct(
+        {...updateProduct, id: product.id, checked: product.checked},
+        list,
+      ),
+    );
+    dispatch(FormActions.updateProductSuccess());
+  }
+
+  function addProduct(list, newProduct) {
+    dispatch(ListActions.addProductRequest(list, newProduct));
+  }
 
   return (
     <form className='form-container' onSubmit={addProductList}>
@@ -69,8 +94,8 @@ const FormList = () => {
           required
           error={showError && !list}
         />
-        <Button variant='contained' color='secondary' type='submit'>
-          Adicionar
+        <Button variant='outlined' color='secondary' type='submit'>
+          Salvar
         </Button>
       </div>
       <div

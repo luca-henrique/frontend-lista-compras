@@ -5,7 +5,7 @@ import {
   TextField,
   Select,
 } from '@material-ui/core';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const units = ['Kilos', 'Litros', 'Unidades'];
@@ -13,6 +13,7 @@ const units = ['Kilos', 'Litros', 'Unidades'];
 import {v1 as uuidv1} from 'uuid';
 
 import {Creators as ListActions} from '../../store/actions/list';
+import {Creator as FormActions} from '../../store/actions/form';
 
 const FormList = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,18 @@ const FormList = () => {
   const [price, setPrice] = useState('');
   const [unity, setUnity] = useState('');
   const [showError, setShowError] = useState(false);
+
+  const {action, product} = useSelector((state) => state.form);
+
+  useEffect(() => {
+    if (action === 'update' && product) {
+      setProductName(product.productName);
+      setQuantity(product.quantity);
+      setUnity(product.unity);
+      setPrice(product.price);
+      setShowError(false);
+    }
+  }, [action]);
 
   const addProductList = (e) => {
     e.preventDefault();

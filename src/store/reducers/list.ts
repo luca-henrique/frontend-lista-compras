@@ -2,13 +2,21 @@ import {Types} from '../actions/list';
 
 import {createSelector} from 'reselect';
 
+import {loadState} from '../localStorage';
+
+const localStorageState = loadState();
+console.log(localStorageState);
+
 const INITIAL_STATE = {
   items: [],
   list: {},
   total: 0,
 };
 
-export default function list(state = INITIAL_STATE, action) {
+export default function list(
+  state = localStorageState || INITIAL_STATE,
+  action,
+) {
   switch (action.type) {
     case Types.NEW_LIST_REQUEST:
       return {...INITIAL_STATE, date: getDate()};

@@ -31,10 +31,6 @@ const FormList = () => {
 
   const router = useParams();
 
-  const state = useSelector((state) => state);
-
-  console.log(state);
-
   useEffect(() => {
     if (action === 'update' && product) {
       setProductName(product.productName);

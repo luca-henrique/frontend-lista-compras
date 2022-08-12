@@ -27,6 +27,7 @@ const FormList = () => {
   const [showError, setShowError] = useState(false);
 
   const {action, product} = useSelector((state) => state.form);
+  const listUpdated = useSelector((state) => state.form.list);
 
   const router = useParams();
   console.log(router);
@@ -77,7 +78,7 @@ const FormList = () => {
     dispatch(
       ListActions.updateProduct(
         {...updateProduct, id: product.id, checked: product.checked},
-        list,
+        listUpdated,
       ),
     );
     dispatch(FormActions.updateProductSuccess());

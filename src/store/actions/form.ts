@@ -4,8 +4,9 @@ export const Types = {
 };
 
 export const Creator = {
-  updateProductRequest: (product) => ({
+  updateProductRequest: (list, product) => ({
     type: Types.UPDATE_PRODUCT_REQUEST,
+    list,
     product,
   }),
 

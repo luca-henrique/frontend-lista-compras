@@ -3,6 +3,7 @@ import {Types} from '../actions/form';
 const INITIAL_STATE = {
   action: 'new',
   product: {},
+  list: '',
 };
 
 export default function form(state = INITIAL_STATE, action) {
@@ -11,12 +12,12 @@ export default function form(state = INITIAL_STATE, action) {
       return {
         action: 'update',
         product: action.product,
+        list: action.list,
       };
 
     case Types.UPDATE_PRODUCT_SUCCESS:
       return {
-        action: 'new',
-        product: {},
+        ...INITIAL_STATE,
       };
 
     default:

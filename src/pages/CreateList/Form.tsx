@@ -14,6 +14,7 @@ import {v1 as uuidv1} from 'uuid';
 
 import {Creators as ListActions} from '../../store/actions/list';
 import {Creator as FormActions} from '../../store/actions/form';
+import {useParams} from 'react-router';
 
 const FormList = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ const FormList = () => {
   const [showError, setShowError] = useState(false);
 
   const {action, product} = useSelector((state) => state.form);
+
+  const router = useParams();
+  console.log(router);
 
   useEffect(() => {
     if (action === 'update' && product) {
@@ -81,6 +85,12 @@ const FormList = () => {
 
   function addProduct(list, newProduct) {
     dispatch(ListActions.addProductRequest(list, newProduct));
+  }
+
+  const showForm = router.action === 'novo' || action === 'update';
+
+  if (!showForm) {
+    return <></>;
   }
 
   return (

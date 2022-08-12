@@ -7,7 +7,7 @@ import ListItem from './ListItem';
 import {useSelector} from 'react-redux';
 
 import {getOpenedItems, getClosedItems} from '../../store/reducers/list';
-import {useCallback, useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const ContentTitle = () => {
   const title = useSelector((state) => state.list.list);
@@ -27,7 +27,7 @@ const ContentTitle = () => {
     <CustomCard
       containerClass='list-container'
       footer={<ContentItemCardFooter />}
-      link='/create-list'
+      link='/lista/editar'
     >
       <div>
         <p className='title'>{title}</p>

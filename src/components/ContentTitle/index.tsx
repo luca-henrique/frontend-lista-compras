@@ -7,7 +7,7 @@ const ContentItemCard = () => {
   const dispatch = useDispatch();
 
   return (
-    <CustomCard containerClass='new-list-container' link='/create-list'>
+    <CustomCard containerClass='new-list-container' link='/lista/novo'>
       <div onClick={() => dispatch(Creators.newList())}>
         <p className='title'>Adicionar novas Listas!</p>
       </div>

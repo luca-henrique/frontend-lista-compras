@@ -30,7 +30,10 @@ const FormList = () => {
   const listUpdated = useSelector((state) => state.form.list);
 
   const router = useParams();
-  console.log(router);
+
+  const state = useSelector((state) => state);
+
+  console.log(state);
 
   useEffect(() => {
     if (action === 'update' && product) {
@@ -39,6 +42,8 @@ const FormList = () => {
       setUnity(product.unity);
       setPrice(product.price);
       setShowError(false);
+    } else if (action === 'new') {
+      setList(listUpdated);
     }
   }, [action]);
 
@@ -86,9 +91,10 @@ const FormList = () => {
 
   function addProduct(list, newProduct) {
     dispatch(ListActions.addProductRequest(list, newProduct));
+    dispatch(FormActions.updateProductSuccess());
   }
 
-  const showForm = router.action === 'novo' || action === 'update';
+  const showForm = router.action === 'novo' || action;
 
   if (!showForm) {
     return <></>;

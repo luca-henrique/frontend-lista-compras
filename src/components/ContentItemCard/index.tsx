@@ -34,11 +34,11 @@ const ContentTitle = () => {
         <div className='list-card-body'>
           <ListItem
             icon={faShoppingBasket}
-            description={` ${item.opened} Item(s) restante`}
+            description={`${item.opened} Item(s) restantes`}
           />
           <ListItem
             icon={faCheck}
-            description={` ${item.closed} Item(s) restante`}
+            description={`${item.closed} Item(s) restantes`}
           />
         </div>
       </div>

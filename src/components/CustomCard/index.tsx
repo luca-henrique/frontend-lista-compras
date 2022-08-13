@@ -26,8 +26,8 @@ const CustomCard = ({
               <CardMedia
                 component='img'
                 className='card-img'
-                height='200px'
                 image={image}
+                height='100'
                 title='image'
               />
             )}

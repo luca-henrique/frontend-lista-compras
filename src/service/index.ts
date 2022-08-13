@@ -7,12 +7,13 @@ export const services = {
       cx: 'a78bb5bbccbb640c4',
       searchType: 'image',
       lr: 'lang_pt',
-      q: product.productName,
+      q: product,
       num: 1,
     };
+
     return axios
       .get('https://www.googleapis.com/customsearch/v1', {params})
-      .then((resp) => resp.data.items)
+      .then((resp) => resp.data.items[0].link)
       .catch((err) => err);
   },
 };

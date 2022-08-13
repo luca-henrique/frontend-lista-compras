@@ -8,12 +8,14 @@ import {useDispatch} from 'react-redux';
 const ListItem = ({item}) => {
   const dispatch = useDispatch();
 
+  console.log(item);
+
   return (
     <CustomCard
       containerClass='list-item'
       link='#'
       footer={<ListItemFooter item={item} />}
-      image='http://s2.glbimg.com/P6Nn4AXYPq-K1Xek4cCKyONYYyA=/e.glbimg.com/og/ed/f/original/2014/01/15/cafe.jpg'
+      image={item.image}
     >
       <div>
         <div className='list-item-header'>

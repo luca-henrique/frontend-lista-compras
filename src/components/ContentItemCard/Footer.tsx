@@ -6,11 +6,13 @@ import {getListTotal} from '../../store/reducers/list';
 const ContentItemCardFooter = () => {
   const total = useSelector((state) => getListTotal(state));
 
+  const date = useSelector((state) => state.list.date);
+
   return (
     <>
       <Divider />
       <CardActions className='card-footer'>
-        <p>01/01/2022</p>
+        <p>{date}</p>
         <p>R$ {total}</p>
       </CardActions>
     </>

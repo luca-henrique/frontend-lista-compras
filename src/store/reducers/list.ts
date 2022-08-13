@@ -25,14 +25,6 @@ export default function list(
       return {
         ...state,
         list: action.list,
-        items: [
-          ...state.items,
-          {
-            ...action.product,
-            total: getItemTotal(action.product),
-            checked: false,
-          },
-        ],
       };
 
     case Types.DELETE_PRODUCT_REQUEST: {
@@ -55,6 +47,20 @@ export default function list(
         items: updateProduct(state.items, action.product),
       };
 
+    case Types.GET_IMAGE_SUCCESS:
+    case Types.GET_IMAGE_FAIL:
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          {
+            ...action.product,
+            total: getItemTotal(action.product),
+            checked: false,
+            image: action.image,
+          },
+        ],
+      };
     default:
       return state;
   }
